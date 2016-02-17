@@ -3,6 +3,10 @@ var expect = require("must")
 var index = require("../index")
 
 describe("index", function () {
+  it("should require an argument", function () {
+    expect(index.bind(this, undefined)).to.throw()
+  })
+
   it("should respect newlines", function () {
     var res = index("ham\nspam")
     expect(splitByLines(res)).to.have.length(2)
